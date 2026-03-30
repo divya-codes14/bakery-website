@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cakes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="top-bar">
+  <a href="index.html" class="nav-btn">Home</a>
+  <a href="cakes.html" class="nav-btn active">Cakes</a>
+  <a href="cookies.html" class="nav-btn">Cookies</a>
+
+  <div class="logo">Sweet Treats Bakery</div>
+
+  <a href="breads.html" class="nav-btn">Breads</a>
+  <a href="cart.html" class="nav-btn">Cart 🛒</a>
+  <a href="login.html" class="nav-btn">Login</a>
+</div>
+
+<h1 class="main-title">Cakes 🍰</h1>
+
+<div class="menu">
+
+  <!-- Chocolate -->
+  <div class="card">
+    <img src="images/chocolate.jpg">
+    <h3>Chocolate Cake</h3>
+    <p>₹400</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('chocolate-cake')">-</button>
+      <span id="chocolate-cake">0</span>
+      <button onclick="increaseQty('chocolate-cake','Chocolate Cake',400,'images/chocolate.jpg')">+</button>
+    </div>
+  </div>
+
+  <!-- Strawberry -->
+  <div class="card">
+    <img src="images/strawberry.jpg">
+    <h3>Strawberry Cake</h3>
+    <p>₹450</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('strawberry-cake')">-</button>
+      <span id="strawberry-cake">0</span>
+      <button onclick="increaseQty('strawberry-cake','Strawberry Cake',450,'images/strawberry.jpg')">+</button>
+    </div>
+  </div>
+
+  <!-- Black Forest -->
+  <div class="card">
+    <img src="images/blackforest.jpg">
+    <h3>Black Forest Cake</h3>
+    <p>₹500</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('blackforest-cake')">-</button>
+      <span id="blackforest-cake">0</span>
+      <button onclick="increaseQty('blackforest-cake','Black Forest Cake',500,'images/blackforest.jpg')">+</button>
+    </div>
+  </div>
+
+  <!-- Red Velvet -->
+  <div class="card">
+    <img src="images/redvelvet.jpg">
+    <h3>Red Velvet Cake</h3>
+    <p>₹550</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('redvelvet-cake')">-</button>
+      <span id="redvelvet-cake">0</span>
+      <button onclick="increaseQty('redvelvet-cake','Red Velvet Cake',550,'images/redvelvet.jpg')">+</button>
+    </div>
+  </div>
+
+  <!-- Vanilla -->
+  <div class="card">
+    <img src="images/vanilla.jpg">
+    <h3>Vanilla Cake</h3>
+    <p>₹350</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('vanilla-cake')">-</button>
+      <span id="vanilla-cake">0</span>
+      <button onclick="increaseQty('vanilla-cake','Vanilla Cake',350,'images/vanilla.jpg')">+</button>
+    </div>
+  </div>
+
+  <!-- Butterscotch -->
+  <div class="card">
+    <img src="images/butterscotch.jpg">
+    <h3>Butterscotch Cake</h3>
+    <p>₹420</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('butterscotch-cake')">-</button>
+      <span id="butterscotch-cake">0</span>
+      <button onclick="increaseQty('butterscotch-cake','Butterscotch Cake',420,'images/butterscotch.jpg')">+</button>
+    </div>
+  </div>
+
+  <!-- Pineapple -->
+  <div class="card">
+    <img src="images/pineapple.jpg">
+    <h3>Pineapple Cake</h3>
+    <p>₹420</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('pineapple-cake')">-</button>
+      <span id="pineapple-cake">0</span>
+      <button onclick="increaseQty('pineapple-cake','Pineapple Cake',420,'images/pineapple.jpg')">+</button>
+    </div>
+  </div>
+
+  <!-- KitKat -->
+  <div class="card">
+    <img src="images/kitkat.jpg">
+    <h3>KitKat Cake</h3>
+    <p>₹600</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('kitkat-cake')">-</button>
+      <span id="kitkat-cake">0</span>
+      <button onclick="increaseQty('kitkat-cake','KitKat Cake',600,'images/kitkat.jpg')">+</button>
+    </div>
+  </div>
+
+  <!-- Truffle -->
+  <div class="card">
+    <img src="images/truffle.jpg">
+    <h3>Chocolate Truffle Cake</h3>
+    <p>₹600</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('chocolate-truffle-cake')">-</button>
+      <span id="chocolate-truffle-cake">0</span>
+      <button onclick="increaseQty('chocolate-truffle-cake','Chocolate Truffle Cake',600,'images/truffle.jpg')">+</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- SCRIPT -->
+<script src="script.js"></script>
+
+</body>
+</html>

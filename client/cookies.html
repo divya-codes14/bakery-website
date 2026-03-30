@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cookies</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="top-bar">
+  <a href="index.html" class="nav-btn">Home</a>
+  <a href="cakes.html" class="nav-btn">Cakes</a>
+  <a href="cookies.html" class="nav-btn active">Cookies</a>
+
+  <div class="logo">Sweet Treats Bakery</div>
+
+  <a href="breads.html" class="nav-btn">Breads</a>
+  <a href="cart.html" class="nav-btn">Cart 🛒</a>
+  <a href="login.html" class="nav-btn">Login</a>
+</div>
+
+<h1 class="main-title">Cookies 🍪</h1>
+
+<div class="menu">
+
+  <!-- Almond Cookies -->
+  <div class="card">
+    <img src="images/almondcookie.jpg">
+    <h3>Almond Cookies</h3>
+    <p>₹130</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('almond-cookie')">-</button>
+      <span id="almond-cookie">0</span>
+      <button onclick="increaseQty('almond-cookie','Almond Cookies',130,'images/almondcookie.jpg')">+</button>
+    </div>
+  </div>
+
+  <!-- ChocoFill -->
+  <div class="card">
+    <img src="images/chocofill.jpg">
+    <h3>ChocoFill Cookies</h3>
+    <p>₹140</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('chocofill-cookie')">-</button>
+      <span id="chocofill-cookie">0</span>
+      <button onclick="increaseQty('chocofill-cookie','ChocoFill Cookies',140,'images/chocofill.jpg')">+</button>
+    </div>
+  </div>
+
+  <!-- Dark Cookies -->
+  <div class="card">
+    <img src="images/darkcookie.jpg">
+    <h3>Dark Cookies</h3>
+    <p>₹150</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('dark-cookie')">-</button>
+      <span id="dark-cookie">0</span>
+      <button onclick="increaseQty('dark-cookie','Dark Cookies',150,'images/darkcookie.jpg')">+</button>
+    </div>
+  </div>
+
+  <!-- Chocolate Chip -->
+  <div class="card">
+    <img src="images/cookie.jpg">
+    <h3>Chocolate Chip Cookies</h3>
+    <p>₹120</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('chocochip-cookie')">-</button>
+      <span id="chocochip-cookie">0</span>
+      <button onclick="increaseQty('chocochip-cookie','Chocolate Chip Cookies',120,'images/cookie.jpg')">+</button>
+    </div>
+  </div>
+
+  <!-- Butter Cookies -->
+  <div class="card">
+    <img src="images/buttercookie.jpg">
+    <h3>Butter Cookies</h3>
+    <p>₹110</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('butter-cookie')">-</button>
+      <span id="butter-cookie">0</span>
+      <button onclick="increaseQty('butter-cookie','Butter Cookies',110,'images/buttercookie.jpg')">+</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

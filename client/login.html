@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-body">
+
+<div class="auth-container">
+
+  <h2>Welcome Back 👋</h2>
+
+  <input id="email" type="email" placeholder="Enter Email">
+
+  <input id="password" type="password" placeholder="Enter Password">
+
+  <!-- 👁️ SHOW PASSWORD -->
+  <div style="text-align:right; font-size:12px; margin-top:-5px;">
+    <span onclick="togglePassword()" style="cursor:pointer;">👁 Show</span>
+  </div>
+
+  <button onclick="login()">Login</button>
+
+  <!-- EXTRA DETAILS -->
+  <p style="margin-top:10px; font-size:14px;">
+    Don't have an account? 
+    <a href="signup.html">Sign up</a>
+  </p>
+
+</div>
+
+<script>
+async function login() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  if (!email || !password) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  const res = await fetch("http://localhost:5000/api/auth/login", {
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({email,password})
+  });
+
+  const data = await res.json();
+
+  if(res.ok){
+    localStorage.setItem("user", email);
+    window.location.href="index.html";
+  } else {
+    alert(data.message);
+  }
+}
+
+/* 👁 toggle password */
+function togglePassword() {
+  const pass = document.getElementById("password");
+  pass.type = pass.type === "password" ? "text" : "password";
+}
+</script>
+
+</body>
+</html>

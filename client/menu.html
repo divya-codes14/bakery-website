@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Menu</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+
+  <a href="index.html" class="nav-btn">Home</a>
+  <a href="menu.html" class="nav-btn active">Menu</a>
+  <a href="cart.html" class="nav-btn">Cart 🛒</a>
+  
+  <a href="login.html" class="nav-btn">Login</a>
+</div>
+
+<h1 class="main-title">Our Menu 🍰</h1>
+
+<!-- ✅ ADD THIS HERE -->
+<div class="category-bar">
+  <button onclick="filterMenu('all')" class="active">All</button>
+  <button onclick="filterMenu('cakes')">Cakes</button>
+  <button onclick="filterMenu('cookies')">Cookies</button>
+  <button onclick="filterMenu('breads')">Breads</button>
+</div>
+
+<!-- ✅ CATEGORY BAR (ONLY ONE) -->
+
+<section class="menu">
+
+  <div class="cards">
+
+    <!-- 🍰 CAKES -->
+    <div class="card cakes">
+      <img src="images/chocolate.jpg">
+      <h3>Chocolate Cake</h3>
+      <p>₹400</p>
+      <div class="qty-controls">
+        <button onclick="decreaseQty('chocolate-cake', 400)">-</button>
+        <span id="chocolate-cake">0</span>
+        <button onclick="increaseQty('chocolate-cake', 400, 'images/chocolate.jpg')">+</button>
+      </div>
+    </div>
+
+    <div class="card cakes">
+      <img src="images/strawberry.jpg">
+      <h3>Strawberry Cake</h3>
+      <p>₹450</p>
+      <div class="qty-controls">
+        <button onclick="decreaseQty('strawberry-cake', 450)">-</button>
+        <span id="strawberry-cake">0</span>
+        <button onclick="increaseQty('strawberry-cake', 450, 'images/strawberry.jpg')">+</button>
+      </div>
+    </div>
+
+    <!-- 🍪 COOKIES -->
+    <div class="card cookies">
+      <img src="images/cookie.jpg">
+      <h3>Choco Chip Cookie</h3>
+      <p>₹100</p>
+      <div class="qty-controls">
+        <button onclick="decreaseQty('cookie', 100)">-</button>
+        <span id="cookie">0</span>
+        <button onclick="increaseQty('cookie', 100, 'images/cookie.jpg')">+</button>
+      </div>
+    </div>
+
+    <!-- 🍞 BREADS -->
+    <div class="card breads">
+      <img src="images/bread.jpg">
+      <h3>Garlic Bread</h3>
+      <p>₹150</p>
+      <div class="qty-controls">
+        <button onclick="decreaseQty('bread', 150)">-</button>
+        <span id="bread">0</span>
+        <button onclick="increaseQty('bread', 150, 'images/bread.jpg')">+</button>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- POPUP -->
+<div id="popup" class="popup">Added to cart ✅</div>
+
+<script src="script.js"></script>
+<!-- ✅ ADD HERE (BOTTOM OF BODY) -->
+<div id="cartSidebar" class="cart-sidebar">
+  <h2>Your Cart 🛒</h2>
+  <div id="cartItems"></div>
+  <h3>Total: ₹<span id="cartTotal">0</span></h3>
+  <button onclick="closeCart()">Close</button>
+</div>
+
+</body>
+</html>

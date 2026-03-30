@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ❌ REMOVE EMPTY NAVBAR (DONE) -->
+
+<!-- HERO SECTION -->
+<div class="hero-banner">
+
+  <!-- 🔥 TOP BAR -->
+  <div class="top-bar">
+    <a href="index.html" class="nav-btn active">Home</a>
+
+    <!-- 🔥 CHANGED LINKS -->
+    <a href="cakes.html">Cakes</a>
+    <a href="cookies.html">Cookies</a>
+
+    <div class="logo">Sweet Treats Bakery</div>
+
+    <a href="breads.html">Breads</a>
+    <a href="cart.html">Cart 🛒</a>
+    <a href="login.html">Login</a>
+  </div>
+
+  <!-- TEXT -->
+  <div class="hero-text">
+    <h1>Every sweet tooth’s best friend...</h1>
+  </div>
+
+</div>
+
+<!-- 🔥 MENU SECTION (ADDED BELOW HERO) -->
+
+
+<!-- 🔥 KEEP SPECIALS BELOW -->
+<section class="specials">
+  <h2>This Week’s Specials 🍰</h2>
+
+  <div class="menu">
+
+    <div class="card">
+      <img src="images/cupcake.jpg">
+      <h3>Cupcake</h3>
+      <p>₹200</p>
+      <button onclick="addToCart('Cupcake', 200, 'images/cupcake.jpg')">
+        Add to Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="images/brownie.jpg">
+      <h3>Chocolate Brownie</h3>
+      <p>₹150</p>
+      <button onclick="addToCart('Chocolate Brownie', 150, 'images/brownie.jpg')">
+        Add to Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="images/donut.jpg">
+      <h3>Donut</h3>
+      <p>₹120</p>
+      <button onclick="addToCart('Donut', 120, 'images/donut.jpg')">
+        Add to Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="images/pastry.jpg">
+      <h3>Strawberry Pastry</h3>
+      <p>₹180</p>
+      <button onclick="addToCart('Strawberry Pastry', 180, 'images/pastry.jpg')">
+        Add to Cart
+      </button>
+    </div>
+
+  </div>
+</section>
+</body>
+</html>

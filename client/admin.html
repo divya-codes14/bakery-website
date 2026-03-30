@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h2 style="text-align:center;">📦 Admin Orders</h2>
+
+<div id="orders"></div>
+
+<script>
+
+async function loadOrders() {
+  const res = await fetch("http://localhost:5000/api/order");
+  const data = await res.json();
+
+  let html = "";
+
+  data.forEach(order => {
+
+    html += `
+      <div class="order-card">
+
+        <h3>👤 ${order.name || "No Name"}</h3>
+        <p>📍 ${order.address || "-"}</p>
+        <p>📞 ${order.phone || "-"}</p>
+
+        <hr>
+
+        ${order.items.map(item => `
+          <div class="order-item">
+            <img src="${item.image}" width="60">
+            <span>${item.name} x${item.qty}</span>
+            <span>₹${item.price * item.qty}</span>
+          </div>
+        `).join("")}
+
+        <h4>Status: ${order.status}</h4>
+
+        <select onchange="updateStatus('${order._id}', this.value)">
+          <option>Pending</option>
+          <option>Delivered</option>
+          <option>Cancelled</option>
+        </select>
+
+      </div>
+    `;
+  });
+
+  document.getElementById("orders").innerHTML = html;
+}
+
+// UPDATE STATUS
+async function updateStatus(id, status) {
+  await fetch(`http://localhost:5000/api/order/update/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ status })
+  });
+
+  loadOrders(); // refresh
+}
+
+loadOrders();
+
+</script>
+
+</body>
+</html>s

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Breads</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Sidebar */
+    .cart-sidebar {
+      position: fixed;
+      right: -350px;
+      top: 0;
+      width: 300px;
+      height: 100%;
+      background: white;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+      padding: 15px;
+      transition: 0.3s;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+
+    .cart-sidebar.active {
+      right: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="top-bar">
+  <a href="index.html" class="nav-btn">Home</a>
+  <a href="cakes.html" class="nav-btn">Cakes</a>
+  <a href="cookies.html" class="nav-btn">Cookies</a>
+
+  <div class="logo">Sweet Treats Bakery</div>
+
+  <a href="breads.html" class="nav-btn active">Breads</a>
+  <a href="#" onclick="openCart()" class="nav-btn">Cart 🛒</a>
+  <a href="login.html" class="nav-btn">Login</a>
+</div>
+
+<h1 class="main-title">Breads 🍞</h1>
+
+<div class="menu">
+
+  <!-- Bun -->
+  <div class="card">
+    <img src="images/bun.jpg">
+    <h3>Bun</h3>
+    <p>₹40</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('bun')">-</button>
+      <span id="bun">0</span>
+      <button onclick="increaseQty('bun','Bun',40,'images/bun.jpg')">+</button>
+    </div>
+  </div>
+
+  <!-- Bread -->
+  <div class="card">
+    <img src="images/bread.jpg">
+    <h3>Bread</h3>
+    <p>₹90</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('bread')">-</button>
+      <span id="bread">0</span>
+      <button onclick="increaseQty('bread','Bread',90,'images/bread.jpg')">+</button>
+    </div>
+  </div>
+
+  <!-- Burger Bun -->
+  <div class="card">
+    <img src="images/burgerbun.jpg">
+    <h3>Burger Bun</h3>
+    <p>₹60</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('burger-bun')">-</button>
+      <span id="burger-bun">0</span>
+      <button onclick="increaseQty('burger-bun','Burger Bun',60,'images/burgerbun.jpg')">+</button>
+    </div>
+  </div>
+
+  <!-- Cheese Bread -->
+  <div class="card">
+    <img src="images/cheesebread.jpg">
+    <h3>Cheese Bread</h3>
+    <p>₹180</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('cheese-bread')">-</button>
+      <span id="cheese-bread">0</span>
+      <button onclick="increaseQty('cheese-bread','Cheese Bread',180,'images/cheesebread.jpg')">+</button>
+    </div>
+  </div>
+
+  <!-- French Bread -->
+  <div class="card">
+    <img src="images/frenchbread.jpg">
+    <h3>French Bread</h3>
+    <p>₹150</p>
+
+    <div class="qty-controls">
+      <button onclick="decreaseQty('french-bread')">-</button>
+      <span id="french-bread">0</span>
+      <button onclick="increaseQty('french-bread','French Bread',150,'images/frenchbread.jpg')">+</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- CART SIDEBAR -->
+<div id="cartSidebar" class="cart-sidebar">
+  <h2>Your Cart 🛒</h2>
+
+  <div id="cartItems"></div>
+
+  <h3>Total: ₹<span id="cartTotal">0</span></h3>
+
+  <button onclick="goToCheckout()">Checkout</button>
+  <button onclick="closeCart()">Close</button>
+</div>
+
+<!-- SCRIPT -->
+<script src="script.js"></script>
+
+<script>
+  function openCart() {
+    document.getElementById("cartSidebar").classList.add("active");
+    loadCart(); // 🔥 important
+  }
+
+  function closeCart() {
+    document.getElementById("cartSidebar").classList.remove("active");
+  }
+</script>
+
+</body>
+</html>

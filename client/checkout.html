@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkout</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="checkout-wrapper">
+
+  <!-- LEFT SIDE -->
+  <div class="checkout-left">
+
+    <h2>🧾 Checkout</h2>
+
+    <!-- DELIVERY -->
+    <div class="checkout-card">
+      <h3>Delivery Details</h3>
+
+      <input type="text" id="name" placeholder="Full Name">
+      <input type="text" id="address" placeholder="Address">
+      <input type="text" id="phone" placeholder="Phone Number">
+      <input type="email" id="email" placeholder="Email">
+    </div>
+
+    <!-- PAYMENT (HORIZONTAL) -->
+    <div class="checkout-card payment-method">
+      <h3 style="width:100%">Payment Method</h3>
+
+      <label class="payment-option">
+        <input type="radio" name="pay" checked>
+        Cash on Delivery
+      </label>
+
+      <label class="payment-option">
+        <input type="radio" name="pay">
+        UPI
+      </label>
+
+      <label class="payment-option">
+        <input type="radio" name="pay">
+        Card
+      </label>
+
+    </div>
+
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="checkout-right">
+
+    <div class="order-box">
+        <div class="checkout-card">
+      <h3>Your Order</h3>
+      <div id="order-items"></div>
+    </div>
+
+    <div class="checkout-card bill-box">
+      <p>Subtotal: ₹<span id="subtotal"></span></p>
+      <p>Delivery: ₹40</p>
+      <p>GST: ₹<span id="gst"></span></p>
+      <h3>Total: ₹<span id="checkout-total"></span></h3>
+    </div>
+
+    <button class="checkout-btn" onclick="confirmOrder()">Place Order 🚀</button>
+
+  </div>
+
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let subtotal = 0;
+let html = "";
+
+// LOAD ITEMS
+cart.forEach(item => {
+  subtotal += item.price * item.qty;
+
+  html += `
+    <div class="order-item">
+      <div class="order-left">
+        <img src="${item.image}" class="order-img">
+        <div>
+          <p>${item.name}</p>
+          <small>₹${item.price} x ${item.qty}</small>
+        </div>
+      </div>
+      <div>₹${item.price * item.qty}</div>
+    </div>
+  `;
+});
+
+document.getElementById("order-items").innerHTML = html;
+
+// TOTAL
+let gst = subtotal * 0.05;
+let total = subtotal + gst + 40;
+
+document.getElementById("subtotal").innerText = subtotal;
+document.getElementById("gst").innerText = gst.toFixed(0);
+document.getElementById("checkout-total").innerText = total.toFixed(0);
+
+// PLACE ORDER
+async function confirmOrder() {
+  let name = document.getElementById("name").value;
+  let address = document.getElementById("address").value;
+  let phone = document.getElementById("phone").value;
+  let email = document.getElementById("email").value;
+
+  if (!name || !address || !phone) {
+    alert("⚠️ Fill all details!");
+    return;
+  }
+
+  if (phone.length < 10) {
+    alert("⚠️ Enter valid phone number!");
+    return;
+  }
+
+  let orderData = {
+    name,
+    address,
+    phone,
+    email,
+    items: cart,
+    total,
+    status: "pending"
+  };
+
+  try {
+    await fetch("http://localhost:5000/api/order/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(orderData)
+    });
+
+    localStorage.removeItem("cart");
+    window.location.href = "success.html";
+
+  } catch (err) {
+    console.error(err);
+    alert("❌ Error placing order");
+  }
+}
+</script>
+
+</body>
+</html>

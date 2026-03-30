@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+    .item {
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+    button {
+      background: pink;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+<div class="top-bar">
+  <a href="index.html" class="nav-btn">Home</a>
+  <a href="cakes.html" class="nav-btn">Cakes</a>
+  <a href="cookies.html" class="nav-btn">Cookies</a>
+
+  <div class="logo">Sweet Treats Bakery</div>
+
+  <a href="breads.html" class="nav-btn">Breads</a>
+  <a href="cart.html" class="nav-btn active">Cart 🛒</a>
+  <a href="login.html" class="nav-btn">Login</a>
+</div>
+  <div class="cart-container">
+<h1 class="main-title">🛒 Your Cart</h1>
+<div id="cartItems"></div>
+
+<h2 style="text-align:center;">Total: ₹<span id="cartTotal">0</span></h2>
+
+<div style="text-align:center; margin-top:20px;">
+  <button onclick="goToCheckout()">Checkout</button>
+</div>
+  
+  
+</div>
+  
+
+  <!-- IMPORTANT -->
+  <script src="script.js"></script>
+
+  <script>
+    loadCart();
+  </script>
+
+</body>
+</html>
