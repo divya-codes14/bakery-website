@@ -161,7 +161,7 @@ async function placeOrder() {
   const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
   try {
-    const res = await fetch("http://localhost:5000/api/order/create", {
+    const res = await fetch("https://bakery-website-cyk9.onrender.com/api/order/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -173,9 +173,10 @@ async function placeOrder() {
       })
     });
 
-    await res.json();
+    const data = await res.json();
+    console.log(data);
 
-    alert("Order placed successfully ✅");
+    showSuccessMessage();
 
     localStorage.removeItem("cart");
     loadCart();
@@ -186,7 +187,6 @@ async function placeOrder() {
     alert("Error placing order ❌");
   }
 }
-
 // =====================
 // 🚀 ON PAGE LOAD
 // =====================
