@@ -555,10 +555,12 @@ button:hover {
 .specials {
   text-align: center;
   margin-top: 0px;
+  padding-top: 10px;
 }
 
 .specials h2 {
-  margin-bottom: 5px;
+  margin: 0;
+  padding-bottom: 5px;
 }
 
 
@@ -567,7 +569,7 @@ button:hover {
 /* ===================== */
 .home-menu {
   border: 2px solid black;
-
+margin-top: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
