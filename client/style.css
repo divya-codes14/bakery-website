@@ -563,8 +563,10 @@ width: 100%;
 .specials h2 {
   margin: 0;       
   position: relative;
-  top: 70px;       /* 🔥 remove default gap */
+  top: 20px;       /* 🔥 remove default gap */
   padding-bottom: 2px;  
+  margin-bottom: -50px;
+
   font-size: 30px;  /* tiny space only */
 }
 
@@ -614,7 +616,7 @@ width: 100%;
 /* ===================== */
 .home-menu .card img {
   width: 100%;
-  height: 130px;       /* smaller image */
+  height: auto;    /* smaller image */
   object-fit: cover;
   border-radius: 12px;
 }

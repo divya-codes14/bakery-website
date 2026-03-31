@@ -106,6 +106,25 @@
 
 
 </div>
+<script>
+let cart = [];
 
+// Increase qty
+function increaseQty(index) {
+  if (!cart[index]) cart[index] = { qty: 0 };
+  cart[index].qty++;
+
+  document.getElementById("qty-" + index).innerText = cart[index].qty;
+}
+
+// Decrease qty
+function decreaseQty(index) {
+  if (!cart[index] || cart[index].qty === 0) return;
+
+  cart[index].qty--;
+
+  document.getElementById("qty-" + index).innerText = cart[index].qty;
+}
+</script>
 </body>
 </html>
