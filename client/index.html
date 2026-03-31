@@ -49,11 +49,11 @@
       <h3>Cupcake</h3>
       <p>₹200</p>
 
-      <div class="qty-controls">
-        <button onclick="decreaseQty(0)">-</button>
-        <span id="qty-0">0</span>
-        <button onclick="increaseQty(0)">+</button>
-      </div>
+   <div class="qty-controls">
+  <button onclick="decreaseQty(0)">-</button>
+  <span id="qty-0">0</span>
+  <button onclick="addItem(0, 'Cupcake', 200)">+</button>
+</div>
 
     </div>
 
@@ -63,11 +63,11 @@
       <h3>Chocolate Brownie</h3>
       <p>₹150</p>
 
-      <div class="qty-controls">
-        <button onclick="decreaseQty(1)">-</button>
-        <span id="qty-1">0</span>
-        <button onclick="increaseQty(1)">+</button>
-      </div>
+    <div class="qty-controls">
+  <button onclick="decreaseQty(1)">-</button>
+  <span id="qty-1">0</span>
+  <button onclick="addItem(1, 'Brownie', 150)">+</button>
+</div>
 
     </div>
 
@@ -77,12 +77,11 @@
       <h3>Donut</h3>
       <p>₹120</p>
 
-      <div class="qty-controls">
-        <button onclick="decreaseQty(2)">-</button>
-        <span id="qty-2">0</span>
-        <button onclick="increaseQty(2)">+</button>
-      </div>
-
+ <div class="qty-controls">
+  <button onclick="decreaseQty(2)">-</button>
+  <span id="qty-2">0</span>
+  <button onclick="addItem(2, 'Donut', 120)">+</button>
+</div>
     </div>
 
     <!-- ITEM 4 -->
@@ -90,12 +89,11 @@
       <img src="images/pastry.jpg">
       <h3>Strawberry Pastry</h3>
       <p>₹180</p>
-
-      <div class="qty-controls">
-        <button onclick="decreaseQty(3)">-</button>
-        <span id="qty-3">0</span>
-        <button onclick="increaseQty(3)">+</button>
-      </div>
+<div class="qty-controls">
+  <button onclick="decreaseQty(3)">-</button>
+  <span id="qty-3">0</span>
+  <button onclick="addItem(3, 'Pastry', 180)">+</button>
+</div>
 
     </div>
 
@@ -107,21 +105,26 @@
 
 </div>
 <script>
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Increase qty
-function increaseQty(index) {
-  if (!cart[index]) cart[index] = { qty: 0 };
+function addItem(index, name, price) {
+  if (!cart[index]) {
+    cart[index] = { name, price, qty: 0 };
+  }
+
   cart[index].qty++;
+
+  localStorage.setItem("cart", JSON.stringify(cart));
 
   document.getElementById("qty-" + index).innerText = cart[index].qty;
 }
 
-// Decrease qty
 function decreaseQty(index) {
   if (!cart[index] || cart[index].qty === 0) return;
 
   cart[index].qty--;
+
+  localStorage.setItem("cart", JSON.stringify(cart));
 
   document.getElementById("qty-" + index).innerText = cart[index].qty;
 }

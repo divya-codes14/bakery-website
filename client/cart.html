@@ -57,6 +57,17 @@
   <script>
     loadCart();
   </script>
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let total = 0;
 
+cart.forEach(item => {
+  if (item && item.qty > 0) {
+    total += item.price * item.qty;
+  }
+});
+
+document.getElementById("total").innerText = "₹" + total;
+</script>
 </body>
 </html>
