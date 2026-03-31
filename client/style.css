@@ -631,7 +631,7 @@ button:hover {
   height: auto;
 }
 .specials {
-  margin-top: 10px;   /* 🔥 was too big */
+  margin-top: 40px;   /* 🔥 was too big */
   padding: 20px 10px;
 }
 .specials h2 {
