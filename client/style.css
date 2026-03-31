@@ -503,6 +503,7 @@ button:hover {
   background: url("images/bakery-bg.jpg") center/cover no-repeat;
   height: 80vh;
   display: flex;
+  margin-bottom: 60px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -632,9 +633,10 @@ button:hover {
 }
 /* 🔥 PUSH SPECIALS BELOW HERO (NO HERO CHANGE) */
 .specials {
-  
-  padding: 50px 20px;
-  margin-top: 0;      /* no pushing manually */
+  position: static;   /* removes overlap */
+  margin-top: 20px;   /* small clean spacing */
+  padding: 40px 20px;
+    /* clean white section */
 }
 .specials h2 {
   text-align: center;   /* 🔥 centers heading */
