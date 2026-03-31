@@ -224,3 +224,6 @@ function logout() {
   localStorage.removeItem("user");
   window.location.href = "signup.html";
 }
+function goToCheckout() {
+  window.location.href = "checkout.html";
+}
