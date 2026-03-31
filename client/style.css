@@ -1249,29 +1249,29 @@ input:focus {
   padding: 20px 80px;
   align-items: stretch;
 }
-.product-container {
+
+/* 🔥 HOME PAGE FIX ONLY */
+.home-menu {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   padding: 20px;
+  justify-items: center;
 }
 
-.product-card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 15px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  max-width: 50px;
-  margin: auto;
-}
-
-.product-card img {
+/* CARD SIZE */
+.home-menu .card {
+  max-width: 220px;
   width: 100%;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 10px;
 }
+
+/* IMAGE SIZE */
 .home-menu .card img {
-  height: 140px;
+  width: 100%;
+  height: 150px;   /* 🔥 smaller like cookies page */
+  object-fit: cover;
+  border-radius: 12px;
 }
+
+
+
