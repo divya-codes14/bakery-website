@@ -47,44 +47,65 @@
   <h2>This Week’s Specials 🍰</h2>
 
   <div class="menu">
+<div class="card"></div>
+  <img src="images/cupcake.jpg">
+  <h3>Cupcake</h3>
+  <p>₹200</p>
 
-    <div class="card">
-      <img src="images/cupcake.jpg">
-      <h3>Cupcake</h3>
-      <p>₹200</p>
-      <button onclick="addToCart('Cupcake', 200, 'images/cupcake.jpg')">
-        Add to Cart
-      </button>
-    </div>
+  <div class="qty-controls">
+    <button onclick="decreaseQty(0)">−</button>
+    <span id="qty-0">1</span>
+    <button onclick="increaseQty(0)">+</button>
+  </div>
+
+  <button onclick="addToCart(0)">Add to Cart</button>
+</div>
+    
+      
 
     <div class="card">
       <img src="images/brownie.jpg">
       <h3>Chocolate Brownie</h3>
       <p>₹150</p>
-      <button onclick="addToCart('Chocolate Brownie', 150, 'images/brownie.jpg')">
-        Add to Cart
-      </button>
+       <div class="qty-controls">
+    <button onclick="decreaseQty(0)">−</button>
+    <span id="qty-0">1</span>
+    <button onclick="increaseQty(0)">+</button>
+  </div>
+
+  <button onclick="addToCart(0)">Add to Cart</button>
+</div>
     </div>
 
     <div class="card">
       <img src="images/donut.jpg">
       <h3>Donut</h3>
       <p>₹120</p>
-      <button onclick="addToCart('Donut', 120, 'images/donut.jpg')">
-        Add to Cart
-      </button>
+       <div class="qty-controls">
+    <button onclick="decreaseQty(0)">−</button>
+    <span id="qty-0">1</span>
+    <button onclick="increaseQty(0)">+</button>
+  </div>
+
+  <button onclick="addToCart(0)">Add to Cart</button>
+</div>
     </div>
 
     <div class="card">
       <img src="images/pastry.jpg">
       <h3>Strawberry Pastry</h3>
       <p>₹180</p>
-      <button onclick="addToCart('Strawberry Pastry', 180, 'images/pastry.jpg')">
-        Add to Cart
-      </button>
+      <div class="qty-controls">
+    <button onclick="decreaseQty(0)">−</button>
+    <span id="qty-0">1</span>
+    <button onclick="increaseQty(0)">+</button>
+  </div>
+
+  <button onclick="addToCart(0)">Add to Cart</button>
+</div>
   </div> 
  </div>
-<script src="client/script.js"></script>
+<script src="/script.js"></script>
   
 </section>
 </body>
