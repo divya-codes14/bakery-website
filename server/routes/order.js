@@ -39,11 +39,10 @@ router.get("/", async (req, res) => {
     const orders = await Order.find().sort({ _id: -1 });
     res.json(orders);
   } catch (err) {
-    console.log("🔥 ERROR:", err);
-    res.status(500).json({ error: "Failed to fetch orders" });
+    console.log("🔥 GET ERROR:", err);
+    res.status(500).json({ error: err.message });
   }
 });
-
 // ================= UPDATE =================
 router.put("/update/:id", async (req, res) => {
   try {
