@@ -1251,27 +1251,22 @@ input:focus {
 }
 
 /* 🔥 HOME PAGE FIX ONLY */
+
+
+
+/* 🔥 FORCE FIX HOME PAGE */
 .home-menu {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
   gap: 20px;
-  padding: 20px;
-  justify-items: stretch;
 }
 
-/* CARD SIZE */
 .home-menu .card {
-  
-  width: 100%;
+  width: 100% !important;
 }
 
-/* IMAGE SIZE */
 .home-menu .card img {
   width: 100%;
-  height: 100px;   /* 🔥 smaller like cookies page */
+  height: 120px;
   object-fit: cover;
-  
 }
-
-
-
