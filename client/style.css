@@ -1268,7 +1268,7 @@ input:focus {
 /* IMAGE SIZE */
 .home-menu .card img {
   width: 100%;
-  height: 150px;   /* 🔥 smaller like cookies page */
+  height: 100px;   /* 🔥 smaller like cookies page */
   object-fit: cover;
   border-radius: 12px;
 }
