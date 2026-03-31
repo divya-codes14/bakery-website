@@ -561,7 +561,9 @@ width: 100%;
 
 /* TITLE */
 .specials h2 {
-  margin: 0;              /* 🔥 remove default gap */
+  margin: 0;       
+  position: relative;
+  top: 70px;       /* 🔥 remove default gap */
   padding-bottom: 2px;  
   font-size: 30px;  /* tiny space only */
 }
