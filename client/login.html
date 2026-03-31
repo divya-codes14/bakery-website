@@ -47,12 +47,12 @@ async function login() {
 
   const data = await res.json();
 
-  if(res.ok){
-    localStorage.setItem("user", email);
-    window.location.href="index.html";
-  } else {
-    alert(data.message);
-  }
+  if (res.ok) {
+  localStorage.setItem("user", email);   // ✅ ADD THIS
+  window.location.href = "index.html";   // ✅ ADD THIS
+} else {
+  alert(data.message);
+}
 }
 
 /* 👁 toggle password */

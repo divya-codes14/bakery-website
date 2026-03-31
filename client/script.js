@@ -1,3 +1,15 @@
+// 🔐 LOGIN CHECK (SMART VERSION)
+const user = localStorage.getItem("user");
+const currentPage = window.location.pathname;
+
+if (
+  !user &&
+  !currentPage.includes("signup.html") &&
+  !currentPage.includes("login.html")
+) {
+  window.location.href = "signup.html";
+}
+
 console.log("Script loaded");
 
 // =====================
@@ -35,9 +47,12 @@ function increaseQty(id, name, price, image) {
   }
 
   saveCart(cart);
-
-  refreshUI();   // 🔥 NEW
+  refreshUI();
 }
+
+// =====================
+// ➖ DECREASE QTY
+// =====================
 function decreaseQty(id) {
   let cart = getCart();
 
@@ -51,23 +66,25 @@ function decreaseQty(id) {
   }
 
   saveCart(cart);
-
-  refreshUI();   // 🔥 NEW
+  refreshUI();
 }
+
+// =====================
+// 🔄 REFRESH UI
+// =====================
 function refreshUI() {
   updateCartCount();
 
-  // if cart page
   if (document.getElementById("cartItems")) {
     loadCart();
   }
 
-  // if product pages (cakes, cookies, breads)
   let cart = getCart();
   cart.forEach(item => {
     updateQtyUI(item.id);
   });
 }
+
 // =====================
 // 🔄 UPDATE UI QTY
 // =====================
@@ -115,10 +132,8 @@ function loadCart() {
   cart.forEach(item => {
     html += `
       <div class="cart-item">
-
         <div class="item-info">
           <img src="${item.image}" class="cart-img">
-
           <div>
             <h4>${item.name}</h4>
             <p>₹${item.price}</p>
@@ -130,19 +145,17 @@ function loadCart() {
           <span>${item.qty}</span>
           <button onclick="increaseQty('${item.id}','${item.name}',${item.price},'${item.image}')">+</button>
         </div>
-
       </div>
     `;
-
-    total += Number(item.price) * Number(item.qty);
+    total += item.price * item.qty;
   });
 
   cartContainer.innerHTML = html;
-  totalEl.innerText = total || 0;
+  totalEl.innerText = total;
 }
 
 // =====================
-// 🧾 PLACE ORDER (BACKEND)
+// 🧾 PLACE ORDER
 // =====================
 async function placeOrder() {
   const cart = getCart();
@@ -173,10 +186,9 @@ async function placeOrder() {
       })
     });
 
-    const data = await res.json();
-    console.log(data);
+    await res.json();
 
-    showSuccessMessage();
+    alert("Order placed successfully ✅");
 
     localStorage.removeItem("cart");
     loadCart();
@@ -187,8 +199,9 @@ async function placeOrder() {
     alert("Error placing order ❌");
   }
 }
+
 // =====================
-// 🚀 ON PAGE LOAD
+// 🚀 ON LOAD
 // =====================
 window.onload = function () {
   let cart = getCart();
@@ -204,36 +217,10 @@ window.onload = function () {
   }
 };
 
-function openCart() {
-  window.location.href = "cart.html";
-}
 // =====================
-// ✅ SUCCESS POPUP
+// 🚪 LOGOUT
 // =====================
-function showSuccessMessage() {
-  const box = document.getElementById("successBox");
-
-  if (!box) return;
-
-  box.classList.remove("hidden");
-
-  setTimeout(() => {
-    box.classList.add("show");
-  }, 10);
-
-  setTimeout(() => {
-    box.classList.remove("show");
-
-    setTimeout(() => {
-      box.classList.add("hidden");
-      window.location.href = "login.html";
-    }, 300);
-
-  }, 2000);
-}
-// =====================
-// 🧾 GO TO CHECKOUT
-// =====================
-function goToCheckout() {
-  window.location.href = "checkout.html";
+function logout() {
+  localStorage.removeItem("user");
+  window.location.href = "signup.html";
 }

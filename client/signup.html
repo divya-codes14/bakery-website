@@ -73,11 +73,13 @@ async function signup() {
 
     const data = await res.json();
 
-    if(res.ok){
-      showSuccessMessage();   // ✅ CLEAN SUCCESS FLOW
-    } else {
-      alert(data.message);
-    }
+    if (res.ok) {
+  localStorage.setItem("user", email);   // ✅ ADD
+  showSuccessMessage(); 
+       window.location.href = "index.html";            // (if you have popup)
+} else {
+  alert(data.message);
+}
 
   } catch (err) {
     console.log(err);
