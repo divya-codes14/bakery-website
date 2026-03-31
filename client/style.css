@@ -632,12 +632,9 @@ button:hover {
 }
 /* 🔥 PUSH SPECIALS BELOW HERO (NO HERO CHANGE) */
 .specials {
-  margin-top: 40px;     /* 👈 reset */
-  padding:  20px;
- 
-
-  
-  z-index: 2;          /* 👈 keeps it above hero blur */
+  background: #fff;
+  padding: 50px 20px;
+  margin-top: 0;      /* no pushing manually */
 }
 .specials h2 {
   text-align: center;   /* 🔥 centers heading */
