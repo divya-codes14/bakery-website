@@ -1262,13 +1262,16 @@ input:focus {
   padding: 15px;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  max-width: 250px;
+  max-width: 50px;
   margin: auto;
 }
 
 .product-card img {
   width: 100%;
-  height: 160px;
+  height: 50px;
   object-fit: cover;
   border-radius: 10px;
+}
+.home-menu .card img {
+  height: 140px;
 }
