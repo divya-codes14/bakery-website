@@ -45,20 +45,17 @@
 <!-- 🔥 KEEP SPECIALS BELOW -->
 <section class="specials">
   <h2>This Week’s Specials 🍰</h2>
-
+<div class="product-container">
   <div class="menu">
 <div class="card"></div>
   <img src="images/cupcake.jpg">
   <h3>Cupcake</h3>
   <p>₹200</p>
 
-  <div class="qty-controls">
-    <button onclick="decreaseQty(0)">−</button>
-    <span id="qty-0">1</span>
-    <button onclick="increaseQty(0)">+</button>
-  </div>
-
-  <button onclick="addToCart(0)">Add to Cart</button>
+ <div class="qty-controls">
+  <button onclick="decreaseQty('cupcake')">-</button>
+  <span id="brownie">0</span>
+  <button onclick="increaseQty('cupcake','Cupcake',150,'images/cupcake.jpg')">+</button>
 </div>
     
       
@@ -67,13 +64,10 @@
       <img src="images/brownie.jpg">
       <h3>Chocolate Brownie</h3>
       <p>₹150</p>
-       <div class="qty-controls">
-    <button onclick="decreaseQty(0)">−</button>
-    <span id="qty-0">1</span>
-    <button onclick="increaseQty(0)">+</button>
-  </div>
-
-  <button onclick="addToCart(0)">Add to Cart</button>
+     <div class="qty-controls">
+  <button onclick="decreaseQty('brownie')">-</button>
+  <span id="brownie">0</span>
+  <button onclick="increaseQty('brownie','Chocolate Brownie',150,'images/brownie.jpg')">+</button>
 </div>
     </div>
 
@@ -81,13 +75,10 @@
       <img src="images/donut.jpg">
       <h3>Donut</h3>
       <p>₹120</p>
-       <div class="qty-controls">
-    <button onclick="decreaseQty(0)">−</button>
-    <span id="qty-0">1</span>
-    <button onclick="increaseQty(0)">+</button>
-  </div>
-
-  <button onclick="addToCart(0)">Add to Cart</button>
+     <div class="qty-controls">
+  <button onclick="decreaseQty('donut')">-</button>
+  <span id="brownie">0</span>
+  <button onclick="increaseQty('donut','donut',150,'images/donut.jpg')">+</button>
 </div>
     </div>
 
@@ -95,15 +86,13 @@
       <img src="images/pastry.jpg">
       <h3>Strawberry Pastry</h3>
       <p>₹180</p>
-      <div class="qty-controls">
-    <button onclick="decreaseQty(0)">−</button>
-    <span id="qty-0">1</span>
-    <button onclick="increaseQty(0)">+</button>
-  </div>
-
-  <button onclick="addToCart(0)">Add to Cart</button>
+    <div class="qty-controls">
+  <button onclick="decreaseQty('pastry')">-</button>
+  <span id="brownie">0</span>
+  <button onclick="increaseQty('pastry','pastry',150,'images/pastry.jpg')">+</button>
 </div>
   </div> 
+ </div>
  </div>
 <script src="/script.js"></script>
   
