@@ -32,81 +32,84 @@
     <a href="cart.html">Cart 🛒</a>
     <a href="login.html">Login</a>
   </div>
+ <!-- HERO SECTION -->
+<section class="hero">
+  <h1>Every sweet tooth’s best friend...</h1>
+</section>
 
-  <!-- TEXT -->
-   
-    
-  <section class="hero">
-    <h1>Every sweet tooth’s best friend...</h1>
-  </section>
-  <!-- MENU -->
+<!-- THIS WEEK SPECIALS -->
 <section class="specials">
-  <h2>This Week's Specials 🍰</h2>
+  <h2>This Week’s Specials 🍰</h2>
 
-  <div class="menu home-menu">
+  <div class="home-menu">
 
-    <!-- CUPCAKE -->
+    <!-- ITEM 1 -->
     <div class="card">
       <img src="images/cupcake.jpg">
       <h3>Cupcake</h3>
       <p>₹200</p>
 
       <div class="qty-controls">
-        <button onclick="decreaseQty('cupcake')">-</button>
-        <span id="cupcake">0</span>
-        <button onclick="increaseQty('cupcake','Cupcake',200,'images/cupcake.jpg')">+</button>
+        <button onclick="decreaseQty(0)">-</button>
+        <span id="qty-0">0</span>
+        <button onclick="increaseQty(0)">+</button>
       </div>
+
+      <button onclick="addToCart(0)">Add to Cart</button>
     </div>
 
-    <!-- BROWNIE -->
+    <!-- ITEM 2 -->
     <div class="card">
       <img src="images/brownie.jpg">
       <h3>Chocolate Brownie</h3>
       <p>₹150</p>
 
       <div class="qty-controls">
-        <button onclick="decreaseQty('brownie')">-</button>
-        <span id="brownie">0</span>
-        <button onclick="increaseQty('brownie','Chocolate Brownie',150,'images/brownie.jpg')">+</button>
+        <button onclick="decreaseQty(1)">-</button>
+        <span id="qty-1">0</span>
+        <button onclick="increaseQty(1)">+</button>
       </div>
+
+      <button onclick="addToCart(1)">Add to Cart</button>
     </div>
 
-    <!-- DONUT -->
+    <!-- ITEM 3 -->
     <div class="card">
       <img src="images/donut.jpg">
       <h3>Donut</h3>
       <p>₹120</p>
 
       <div class="qty-controls">
-        <button onclick="decreaseQty('donut')">-</button>
-        <span id="donut">0</span>
-        <button onclick="increaseQty('donut','Donut',120,'images/donut.jpg')">+</button>
+        <button onclick="decreaseQty(2)">-</button>
+        <span id="qty-2">0</span>
+        <button onclick="increaseQty(2)">+</button>
       </div>
+
+      <button onclick="addToCart(2)">Add to Cart</button>
     </div>
 
-    <!-- PASTRY -->
+    <!-- ITEM 4 -->
     <div class="card">
       <img src="images/pastry.jpg">
       <h3>Strawberry Pastry</h3>
       <p>₹180</p>
 
       <div class="qty-controls">
-        <button onclick="decreaseQty('pastry')">-</button>
-        <span id="pastry">0</span>
-        <button onclick="increaseQty('pastry','Strawberry Pastry',180,'images/pastry.jpg')">+</button>
+        <button onclick="decreaseQty(3)">-</button>
+        <span id="qty-3">0</span>
+        <button onclick="increaseQty(3)">+</button>
       </div>
+
+      <button onclick="addToCart(3)">Add to Cart</button>
     </div>
 
   </div>
 </section>
+    
+
 
 
 </div>
-
-<!-- 🔥 MENU SECTION (ADDED BELOW HERO) -->
-
-
-<!-- 🔥 KEEP SPECIALS BELOW -->
 
 </body>
 </html>
