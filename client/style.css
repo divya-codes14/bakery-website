@@ -555,7 +555,7 @@ button:hover {
 .specials {
   text-align: center;
   margin-top: 30px;
-  padding-top: 0px;
+  padding-top: 10px;
 }
 
 .specials h2 {
@@ -608,7 +608,7 @@ max-width: 180px;
 /* ===================== */
 .home-menu .card img {
   width: 100%;
-  height: 140px;
+  height: 130px;
   object-fit: cover;
   border-radius: 12px;
 }
