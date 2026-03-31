@@ -1,68 +1,74 @@
-
-
-
-const nodemailer = require("nodemailer");
 const express = require("express");
 const router = express.Router();
 const Order = require("../models/Order");
 
-
-
-const transporter = nodemailer.createTransport({
-  service:"gmail",
-  auth:{
-    user:"yourgmail@gmail.com",
-    pass:"your_app_password"
-  }
-});
-
+// ================= CREATE ORDER =================
 router.post("/create", async (req, res) => {
   try {
-    const { userEmail, items, total } = req.body;
+    const { name, address, phone, userEmail, items, total } = req.body;
 
-    console.log("Order API hit:", userEmail, total);
+    if (!userEmail || !items || !total) {
+      return res.status(400).json({ error: "Missing required fields" });
+    }
 
-    const order = new Order({ userEmail, items, total });
+    console.log("📦 Order received:", userEmail, total);
+
+    const order = new Order({
+      name,
+      address,
+      phone,
+      userEmail,
+      items,
+      total,
+      status: "Pending"
+    });
+
     await order.save();
-    console.log("📧 Sending email...");
-    console.log("✅ Email sent");
-    const mailOptions = {
-  from: "yourgmail@gmail.com",
-  to: req.body.email,
-  subject: "Order Confirmation 🧁",
-  html: `
-    <h2>🎉 Order Confirmed!</h2>
-    <p><b>Name:</b> ${req.body.name}</p>
-    <p><b>Address:</b> ${req.body.address}</p>
-    <p><b>Phone:</b> ${req.body.phone}</p>
-    <p><b>Status:</b> Pending</p>
-  `
-};
 
-await transporter.sendMail(mailOptions);
-
-    // TEMP: skip email
-    console.log("Email skipped");
-
-    res.json({ message: "Order placed successfully" });
+    res.json({ message: "Order placed successfully", order });
 
   } catch (err) {
-    console.log(err);
-    res.status(500).json({ error: "Order failed" });
+    console.log("🔥 REAL ERROR:", err);
+    res.status(500).json({ error: err.message });
   }
 });
-module.exports = router;
-// GET ALL ORDERS
+
+// ================= GET ALL ORDERS =================
 router.get("/", async (req, res) => {
-  const orders = await Order.find().sort({ _id: -1 });
-  res.json(orders);
+  try {
+    const orders = await Order.find().sort({ _id: -1 });
+    res.json(orders);
+  } catch (err) {
+    console.log("🔥 ERROR:", err);
+    res.status(500).json({ error: "Failed to fetch orders" });
+  }
 });
 
-// UPDATE STATUS
+// ================= UPDATE =================
 router.put("/update/:id", async (req, res) => {
-  await Order.findByIdAndUpdate(req.params.id, {
-    status: req.body.status
-  });
+  try {
+    const updated = await Order.findByIdAndUpdate(
+      req.params.id,
+      { status: req.body.status },
+      { new: true }
+    );
 
-  res.json({ message: "Status updated" });
+    res.json({ message: "Status updated", order: updated });
+  } catch (err) {
+    console.log("🔥 ERROR:", err);
+    res.status(500).json({ error: "Update failed" });
+  }
 });
+
+// ================= DELETE =================
+router.delete("/delete/:id", async (req, res) => {
+  try {
+    await Order.findByIdAndDelete(req.params.id);
+    res.json({ message: "Order deleted" });
+  } catch (err) {
+    console.log("🔥 ERROR:", err);
+    res.status(500).json({ error: "Delete failed" });
+  }
+});
+
+module.exports = router;
